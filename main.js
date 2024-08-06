@@ -27,13 +27,13 @@ function output() {
   ol.innerHTML = "";
   arr.forEach((item, index) => {
     let li = document.createElement("li");
-    li.innerHTML = `<div class="m-2   row g-2">
-        <input type="checkbox" class=" col-1 mr-2 todoChecked" ${
+    li.innerHTML = `<div id="df" class="m-2  grid grid-cols-4 gap-5 text-white   row g-2">
+        <input type="checkbox" class=" mr-2 text-lime-500 w-[25px] todoChecked" ${
           item.disable ? "checked" : ""
         }>
-        <span class="col-5">${item.name}</span>
-        <button class="col-2 editBtn btn mr-2 btn-success">Edit</button>
-        <button class="deleteBtn col-2  btn btn-danger">Delete</button>
+        <span class="text-white overflow-scroll font-bold">${item.name}</span>
+        <button class=" editBtn bg-[#5eff00] text-white font-bold px-4 py-1 rounded-md">Edit</button>
+        <button class="deleteBtn bg-[red] text-white font-bold px-4 py-1 rounded-md">Delete</button>
         </div>`;
     ol.appendChild(li);
 

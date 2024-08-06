@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#input{
+    color: black;
+    &::placeholder{
+        color: gray;
+    }
+}
+/* #df{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+} */
+
+
+
+
+
+  
