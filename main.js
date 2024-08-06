@@ -27,19 +27,21 @@ function output() {
   ol.innerHTML = "";
   arr.forEach((item, index) => {
     let li = document.createElement("li");
-    li.innerHTML = `<div id="df" class="m-2  grid grid-cols-4 gap-5 text-white   row g-2">
+    li.innerHTML = `<div id="df" class="m-2  grid grid-cols-4 gap-2 text-white ">
         <input type="checkbox" class=" mr-2 text-lime-500 w-[25px] todoChecked" ${
           item.disable ? "checked" : ""
         }>
-        <span class="text-white overflow-scroll font-bold">${item.name}</span>
-        <button class=" editBtn bg-[#5eff00] text-white font-bold px-4 py-1 rounded-md">Edit</button>
+        <span id="span" class="${item.disable ? "disabled" : ""} span text-white overflow-auto">${item.name}</span>
+        <button class=" editBtn   bg-[#5eff00] text-white font-bold px-4 py-1 rounded-md">Edit</button>
         <button class="deleteBtn bg-[red] text-white font-bold px-4 py-1 rounded-md">Delete</button>
         </div>`;
     ol.appendChild(li);
 
     li.querySelector(".todoChecked").addEventListener("change", () => {
       item.disable = !item.disable;
+    
       saveLocal();
+      output()
     });
 
     li.querySelector(".editBtn").addEventListener("click", () => {
@@ -73,3 +75,10 @@ function removeAlls() {
   saveLocal();
   output();
 }
+
+
+function spanCheck() {
+  let span = document.getElementById("span")
+  span.classList.toggle("checked")
+}
+spanCheck()
